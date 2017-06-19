@@ -1,14 +1,16 @@
 require 'telegram_bot'
 require 'pp'
 require 'logger'
-require 'elasticsearch'
+require 'rbing'
 
 logger = Logger.new(STDOUT, Logger::DEBUG)
 
 bot = TelegramBot.new(token: '395303980:AAEhCl_PPRFm8shHR56XW5mVgOqClKUfdBw', logger: logger)
-client = Elasticsearch::Client.new log: true
-logger.info client
-logger.debug "starting telegram bot"
+
+bing = RBing.new('59fd63b3eb314706b4440cdd6438533f')
+query = "tits"
+results = bing.web("#{query} site:google.com")
+puts results
 
 bot.get_updates(fail_silently: true) do |message|
 

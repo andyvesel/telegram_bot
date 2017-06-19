@@ -2,4 +2,4 @@
 source "https://rubygems.org"
 
 gem 'telegram_bot', github: 'eljojo/telegram_bot'
-gem 'elasticsearch'
+gem 'rbing', '~> 1.1'
